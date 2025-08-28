@@ -16,9 +16,27 @@ jobs:
           GIST_ID: 9db17f016174a768dbaa16454ba295c0
           TIMEZONE: Asia/Shanghai
 
-      - name: Update Programming Languages Gist
-        run: npx github-lang-box@2
+      - uses: actions/checkout@v5
+        with:
+          repository: "liby/recent-languages-box"
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install APT dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
+
+      - name: Install GitHub Linguist
+        if: steps.cache-linguist.outputs.cache-hit != 'true'
+        run: sudo gem install github-linguist
+
+      - name: Install dependencies
+        run: bun i
+
+      - run: bun start
         env:
-          GH_USERNAME: bestruirui
-          GIST_ID: bf4c3cf669ab7930d2979b3d8b45d694
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: bf4c3cf669ab7930d2979b3d8b45d694
+          USERNAME: ${{ github.actor }}
