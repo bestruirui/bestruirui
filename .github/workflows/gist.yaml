@@ -13,5 +13,12 @@ jobs:
         uses: maxam2017/productive-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.PRODUCTIVE_GIST_ID }}
-          TIMEZONE: ${{ vars.TIMEZONE }}
+          GIST_ID: 9db17f016174a768dbaa16454ba295c0
+          TIMEZONE: Asia/Shanghai
+
+      - name: Update Programming Languages Gist
+        run: npx github-lang-box@2
+        env:
+          GH_USERNAME: bestruirui
+          GIST_ID: bf4c3cf669ab7930d2979b3d8b45d694
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
