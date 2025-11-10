@@ -16,27 +16,23 @@ jobs:
           GIST_ID: 9db17f016174a768dbaa16454ba295c0
           TIMEZONE: Asia/Shanghai
 
-      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        id: pnpm-install
         with:
-          repository: "liby/recent-languages-box"
+          version: 10
+          run_install: true
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
 
-      - name: Install APT dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
-
-      - name: Install GitHub Linguist
-        if: steps.cache-linguist.outputs.cache-hit != 'true'
-        run: sudo gem install github-linguist
-
-      - name: Install dependencies
-        run: bun i
-
-      - run: bun start
+      - name: Update
+        run: pnpm dlx github-lang-box@2
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_USERNAME: your-username
           GIST_ID: bf4c3cf669ab7930d2979b3d8b45d694
-          USERNAME: ${{ github.actor }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
