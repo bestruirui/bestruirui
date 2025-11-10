@@ -16,17 +16,13 @@ jobs:
           GIST_ID: 9db17f016174a768dbaa16454ba295c0
           TIMEZONE: Asia/Shanghai
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        id: pnpm-install
-
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.0.0
 
       - name: Update
-        run: pnpm dlx github-lang-box@2
+        run: npx -y github-lang-box 
         env:
-          GH_USERNAME: your-username
+          GH_USERNAME: ${{ github.actor }}
           GIST_ID: bf4c3cf669ab7930d2979b3d8b45d694
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
