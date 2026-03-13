@@ -1,14 +1,17 @@
-### Hi there 👋
+<picture>
+  <source
+    srcset="https://github-readme-stats.vercel.app/api?username=bestruirui&show_icons=true&theme=dark&include_all_commits=true&hide=contribs,prs&rank_icon=percentile"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="https://github-readme-stats.vercel.app/api?username=bestruirui&show_icons=true&include_all_commits=true&hide=contribs,prs&rank_icon=percentile"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img align="right" src="https://github-readme-stats.vercel.app/api?username=bestruirui&show_icons=true&include_all_commits=true&hide=contribs,prs&rank_icon=percentile" />
+</picture>
 
-**bestruirui/bestruirui** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### Hi there, I'm [RUI](https://bestrui.top)! 👋
 
-Here are some ideas to get you started:
+**Languages and Tools:**  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+[![My Skills](https://skillicons.dev/icons?i=go,c,typescript&theme=light)](https://skillicons.dev)
